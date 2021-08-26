@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, BrowserRouter } from "react-router-dom"
 import Chats from '../Chats/Chats'
+import { Profile } from '../Profile/Profile'
 
 function Routes() {
     return (
@@ -24,7 +25,7 @@ function Routes() {
                     <h3>Home</h3>
                 </Route>
                 <Route exact path="/profile">
-                    <h3>Profile</h3>
+                    <Profile />
                 </Route>
                 <Route path="/chats/:chatId?">
                     <Chats />
