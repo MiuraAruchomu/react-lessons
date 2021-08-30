@@ -1,1 +1,6 @@
-export const TOGGLE_SHOW = 'TOGGLE_SHOW'
+import { SET_NAME } from "./actionTypes";
+
+export const setName = (payload) => ({
+    type: SET_NAME,
+    payload
+})
