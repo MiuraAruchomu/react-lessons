@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, BrowserRouter } from "react-router-dom"
-import Chats from '../Chats/Chats'
-import { Profile } from '../Profile/Profile'
+import { Chats } from '../../Containers/Chats/Chats'
+import { Profile } from '../../Containers/Profile/Profile'
 
 function Routes() {
     return (

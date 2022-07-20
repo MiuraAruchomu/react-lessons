@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { List } from '@material-ui/core'
 import { ListItem } from '@material-ui/core'
-import { AddChat } from '../AddChat/AddChat'
+import { AddChat } from '../../Containers/AddChat/AddChat'
 
-function ChatList({ chats }) {
+export const ChatList = ({ chats }) => {
     return (
         <List>
             {Object.values(chats).map((chat) => (
@@ -18,5 +18,3 @@ function ChatList({ chats }) {
         </List>
     )
 }
-
-export default ChatList

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Message({ author, text }) {
+export const Message = ({ author, text }) => {
     if(!text) {
         text = ''
     }
@@ -11,5 +11,3 @@ function Message({ author, text }) {
         </div>
     )
 }
-
-export default Message

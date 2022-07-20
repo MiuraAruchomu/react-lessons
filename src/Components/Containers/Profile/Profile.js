@@ -1,12 +1,13 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { SET_NAME } from "../../Store/Profile/actionTypes"
-import { selectName } from "../../Store/Profile/selectors"
+import { useInput } from "../../../CustomHooks/useInput"
+import { SET_NAME } from "../../../Store/Profile/actionTypes"
+import { selectName } from "../../../Store/Profile/selectors"
 
 export const Profile = () => {
     const name = useSelector(selectName)
     const dispatch = useDispatch()
-    const [value, setValue] = useState('')
+    const { value, handleChange, reset } = useInput('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -14,11 +15,7 @@ export const Profile = () => {
             type: SET_NAME,
             payload: value
         })
-        setValue('')
-    }
-
-    const handleChange = (e) => {
-        setValue(e.target.value)
+        reset()
     }
 
     return (

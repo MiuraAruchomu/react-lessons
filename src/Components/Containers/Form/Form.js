@@ -1,23 +1,23 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Button } from '@material-ui/core'
 import { Input } from '@material-ui/core'
+import { useSelector } from 'react-redux'
+import { selectName } from "../../../Store/Profile/selectors"
+import { useInput } from '../../../CustomHooks/useInput'
 
-function Form({ onSendMessage }) {
-    const [value, setValue] = useState('')
-
-    const handleChange = (e) => {
-        setValue(e.target.value)
-    }
+export const Form = ({ onSendMessage }) => {
+    const name = useSelector(selectName)
+    const { value , handleChange, reset } = useInput('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         onSendMessage({
-            author: 'Me',
+            author: name,
             text: value,
             id: Date.now()
         })
-        setValue('')
+        reset()
     }
 
     const inputRef = useRef(null)
@@ -35,5 +35,3 @@ function Form({ onSendMessage }) {
         </form>
     )
 }
-
-export default Form

@@ -15,3 +15,14 @@ export const sendMessage = (chatId, message) => ({
         message
     }
 })
+
+export const sendMessageWithThunk = (chatId, message) => (dispatch, getState) => {
+    dispatch(sendMessage(chatId, message))
+    if(message.author !== 'Bot') {
+        const botMessage = {
+            author: 'Bot',
+            text: `I'am bot`
+        }
+        setTimeout(() => dispatch(sendMessage(chatId, botMessage)), 1000)
+    }
+}
